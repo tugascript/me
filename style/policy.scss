@@ -1,0 +1,92 @@
+.policy {
+    max-width: min(900px, 90%);
+    margin: 2rem auto;
+    padding: 0 clamp(1rem, 5vw, 2rem);
+    color: #FAFAFA;
+    line-height: 1.6;
+
+    h2 {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        margin-bottom: 2rem;
+        color: #BDBDBD;
+    }
+
+    p {
+        margin-bottom: 1rem;
+        font-size: clamp(0.9rem, 2vw, 1rem);
+        text-align: justify;
+
+        b {
+            color: #BDBDBD;
+            font-weight: 600;
+        }
+
+        a {
+            color: #64B5F6;
+            text-decoration: none;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: #2196F3;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    // Style for numbered lists
+    p:has(+ p:not(:has(b))) {
+        margin-bottom: 0.5rem;
+    }
+
+    // Style for list items
+    p:not(:has(b)) {
+        padding-left: 1.5rem;
+        position: relative;
+
+        &::before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #2196F3;
+        }
+    }
+
+    // Style for sections with bold headers
+    p:has(b) {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 500;
+    }
+
+    // Style for the first paragraph after a section header
+    p:has(b) + p {
+        margin-top: 0.5rem;
+    }
+
+    // Style for the contact email
+    p:has(b:contains("support@tugascript.com")) {
+        margin-top: 2rem;
+        font-weight: 500;
+    }
+
+    // Responsive adjustments
+    @media screen and (max-width: 768px) {
+        padding: 0 1rem;
+
+        p {
+            text-align: left;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        margin: 1rem auto;
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+        }
+    }
+} 

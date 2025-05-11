@@ -1,0 +1,162 @@
+// Define some variables (optional but good practice)
+// Black color
+
+.navbar {
+    background-color: #000000;
+    padding: 1rem 0;
+    width: 100%;
+    color: #FAFAFA;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #FAFAFA;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        width: 100%;
+        position: relative;
+    }
+
+    .navbar-brand {
+        color: #FAFAFA;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        
+        a {
+            text-decoration: none;
+            color: #FAFAFA;
+            height: 100%;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .burger-menu {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+
+        span {
+            width: 100%;
+            height: 3px;
+            background-color: #FAFAFA;
+            border-radius: 3px;
+            transition: all 0.3s ease-in-out;
+
+            &.open {
+                &:first-child {
+                    transform: translateY(9px) rotate(45deg);
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+
+                &:last-child {
+                    transform: translateY(-9px) rotate(-45deg);
+                }
+            }
+        }
+    }
+
+    .navbar-buttons {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        height: 100%;
+
+        a {
+            color: #FAFAFA;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            text-transform: uppercase;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease;
+            border-radius: 4px;
+            position: relative;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                cursor: pointer;
+            }
+
+            &.active {
+                background-color: rgba(255, 255, 255, 0.1);
+                
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -2px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: #FAFAFA;
+                    border-radius: 2px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        .burger-menu {
+            display: flex;
+        }
+
+        .navbar-buttons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000000;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s ease-in-out;
+            padding: 2rem;
+            z-index: 1000;
+            transform: translateX(100%);
+            visibility: hidden;
+
+            &.open {
+                transform: translateX(0);
+                visibility: visible;
+            }
+
+            a {
+                width: 100%;
+                justify-content: center;
+                padding: 1rem;
+                font-size: 1.2rem;
+                border-radius: 8px;
+
+                &.active {
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

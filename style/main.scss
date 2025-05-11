@@ -1,0 +1,23 @@
+@import 'navbar';
+@import 'intro';
+@import 'policy';
+@import 'footer';
+
+:root {
+	--background: #000000;
+	--text: #FAFAFA;
+	--links: #64B5F6;
+	--border: #FAFAFA;
+	--hover: #2196F3;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	text-align: center;
+	background-color: #000000;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	padding-top: 3.75rem;
+	color: #FAFAFA
+}
