@@ -1,68 +1,32 @@
 use leptos::prelude::*;
-use leptos_router::components::A;
+use leptos_router::{components::A, hooks::use_location};
 
 use crate::components::global::state::AuthenticatedState;
 
 #[component]
-pub fn SignInButton() -> impl IntoView {
-    view! {
-        <A href="/sign-in">
-            "Sign In"
-        </A>
-    }
-}
-
-#[component]
-pub fn UserButton() -> impl IntoView {
-    view! {
-        <A href="/me">
-            "User"
-        </A>
-    }
-}
-
-#[component]
-pub fn HomeScreenButton(
-    #[prop(into)] is_menu_open: ReadSignal<bool>,
+pub fn NavbarButton(
     #[prop(into)] set_is_menu_open: WriteSignal<bool>,
+    #[prop(into)] text: String,
+    #[prop(into)] href: String,
 ) -> impl IntoView {
-    let on_click = move |_| {
-        set_is_menu_open.set(false);
-    };
+    let path = use_location().pathname;
 
     view! {
-        <A href="/" on:click=on_click>
-            {move || {
-                if is_menu_open.get() {
-                    "TugaScript"
-                } else {
-                    ""
-                }
-            }}
+        <A href={href.clone()} on:click=move |_| set_is_menu_open.set(false)>
+            <span class=move || if path.get() == href { "active" } else { "" }>
+                {text}
+            </span>
         </A>
     }
 }
 
 #[component]
-pub fn CommonButtons(
-    #[prop(into)] is_menu_open: ReadSignal<bool>,
-    #[prop(into)] set_is_menu_open: WriteSignal<bool>,
-) -> impl IntoView {
-    let on_click = move |_| {
-        set_is_menu_open.set(false);
-    };
-
+fn CommonButtons(#[prop(into)] set_is_menu_open: WriteSignal<bool>) -> impl IntoView {
     view! {
-        <HomeScreenButton is_menu_open set_is_menu_open />
-        <A href="/portfolio" on:click=on_click>
-            "Portfolio"
-        </A>
-        <A href="/blog" on:click=on_click>
-            "Blog"
-        </A>
-        <A href="/contact" on:click=on_click>
-            "Contact Me"
-        </A>
+        <NavbarButton set_is_menu_open text="Home" href="/" />
+        <NavbarButton set_is_menu_open text="Portfolio" href="/portfolio" />
+        <NavbarButton set_is_menu_open text="Blog" href="/blog" />
+        <NavbarButton set_is_menu_open text="Contact Me" href="/contact" />
     }
 }
 
@@ -99,12 +63,9 @@ pub fn AuthButton(#[prop(into)] set_is_menu_open: WriteSignal<bool>) -> impl Int
 }
 
 #[component]
-pub fn NavbarButtons(
-    #[prop(into)] is_menu_open: ReadSignal<bool>,
-    #[prop(into)] set_is_menu_open: WriteSignal<bool>,
-) -> impl IntoView {
+pub fn NavbarButtons(#[prop(into)] set_is_menu_open: WriteSignal<bool>) -> impl IntoView {
     view! {
-        <CommonButtons is_menu_open set_is_menu_open />
+        <CommonButtons set_is_menu_open />
         <AuthButton set_is_menu_open />
     }
 }
