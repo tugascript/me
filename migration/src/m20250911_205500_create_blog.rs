@@ -821,7 +821,6 @@ impl MigrationTrait for Migration {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "common_tags")]
 enum CommonTag {
     Table,
     Id,
@@ -831,7 +830,6 @@ enum CommonTag {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "blog_posts")]
 enum BlogPost {
     Table,
     Id,
@@ -848,7 +846,6 @@ enum BlogPost {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "blog_post_tags")]
 enum BlogPostTag {
     Table,
     Id,
@@ -861,7 +858,6 @@ enum BlogPostTag {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "blog_post_images")]
 enum BlogPostImage {
     Table,
     Id,
@@ -873,7 +869,6 @@ enum BlogPostImage {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "blog_post_technologies")]
 enum BlogPostTechnology {
     Table,
     BlogPostId,
@@ -899,7 +894,6 @@ pub enum BlogReactions {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "blog_post_reactions")]
 enum BlogPostReaction {
     Table,
     BlogPostId,
@@ -909,7 +903,6 @@ enum BlogPostReaction {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "blog_series")]
 enum BlogSeries {
     Table,
     Id,
@@ -922,7 +915,6 @@ enum BlogSeries {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "blog_series_posts")]
 enum BlogSeriesPost {
     Table,
     BlogSeriesId,
@@ -931,7 +923,6 @@ enum BlogSeriesPost {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "blog_series_technologies")]
 enum BlogSeriesTechnology {
     Table,
     BlogSeriesId,
@@ -940,7 +931,6 @@ enum BlogSeriesTechnology {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "blog_post_comments")]
 enum BlogPostComment {
     Table,
     Id,
@@ -955,7 +945,6 @@ enum BlogPostComment {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "blog_post_comments_reactions")]
 enum BlogPostCommentReaction {
     Table,
     BlogPostCommentId,

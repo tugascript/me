@@ -456,7 +456,6 @@ pub enum Technology {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "related_technologies")]
 enum RelatedTechnology {
     Table,
     ParentTechnologyId,
@@ -484,7 +483,6 @@ pub enum ProjectStatus {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "projects")]
 pub enum Project {
     Table,
     Id,
@@ -501,7 +499,6 @@ pub enum Project {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "project_technologies")]
 enum ProjectTechnology {
     Table,
     ProjectId,
@@ -531,7 +528,6 @@ pub enum ProjectLinkType {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "project_links")]
 enum ProjectLink {
     Table,
     Id,
@@ -544,7 +540,6 @@ enum ProjectLink {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "project_images")]
 enum ProjectImage {
     Table,
     Id,

@@ -218,7 +218,6 @@ impl MigrationTrait for Migration {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "users")]
 pub enum User {
     Table,
     Id,
@@ -233,7 +232,6 @@ pub enum User {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "auth_providers")]
 enum AuthProvider {
     Table,
     Id,
@@ -244,7 +242,6 @@ enum AuthProvider {
 }
 
 #[derive(DeriveIden)]
-#[sea_orm(table_name = "user_suspensions")]
 enum UserSuspension {
     Table,
     Id,
