@@ -1,5 +1,5 @@
-use crate::components::{footer::Footer, intro::Intro, navbar::Navbar};
-use crate::pages::{PrivacyPolicy, TermsAndConditions};
+use crate::components::{footer::Footer, navbar::Navbar};
+use crate::pages::{CvPage, HomePage, PrivacyPolicy, TermsAndConditions};
 use leptos::prelude::*;
 use leptos_meta::{Link, Stylesheet, Title, provide_meta_context};
 use leptos_router::{
@@ -18,7 +18,7 @@ pub fn App() -> impl IntoView {
         <Stylesheet id="leptos" href="/pkg/tugascript.css"/>
         <Link rel="preconnect" href="https://fonts.googleapis.com" />
         <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-        <Link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+        <Link href="https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
 
         // sets the document title
@@ -31,8 +31,8 @@ pub fn App() -> impl IntoView {
                 <Routes fallback=move || "Not found.">
                     <Route path=StaticSegment("") view=HomePage/>
                     <Route path=StaticSegment("portfolio") view=PortfolioPage/>
+                    <Route path=StaticSegment("cv") view=CvPage/>
                     <Route path=StaticSegment("blog") view=BlogPage/>
-                    <Route path=StaticSegment("contact") view=ContactPage/>
                     <Route path=StaticSegment("privacy-policy") view=PrivacyPolicy/>
                     <Route path=StaticSegment("terms-and-conditions") view=TermsAndConditions/>
                     <Route path=WildcardSegment("any") view=NotFound/>
@@ -40,14 +40,6 @@ pub fn App() -> impl IntoView {
                 <Footer/>
             </main>
         </Router>
-    }
-}
-
-/// Renders the home page of your application.
-#[component]
-fn HomePage() -> impl IntoView {
-    view! {
-        <Intro/>
     }
 }
 
@@ -86,13 +78,5 @@ fn BlogPage() -> impl IntoView {
     view! {
         <h1>"Blog"</h1>
         <p>"Welcome to my blog!"</p>
-    }
-}
-
-#[component]
-fn ContactPage() -> impl IntoView {
-    view! {
-        <h1>"Contact Me"</h1>
-        <p>"Get in touch with me!"</p>
     }
 }

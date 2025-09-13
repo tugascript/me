@@ -28,3 +28,9 @@ Cargo.lock
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# Docker data
+postgres_data/
+
+# .env file
+.env

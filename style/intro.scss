@@ -21,6 +21,7 @@
         border-radius: 50%;
         object-fit: cover;
         margin-bottom: 1rem;
+        margin-top: 0.5rem;
         border: max(3px, 0.3vw) solid #FAFAFA;
     }
 
@@ -68,13 +69,13 @@
         letter-spacing: 0.3px;
 
         a {
-            color: #BDBDBD;
+            color: var(--links);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s ease;
             
             &:hover {
-                color: #FAFAFA;
+                color: var(--hover);
                 text-decoration: underline;
             }
         }

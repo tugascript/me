@@ -1,3 +1,9 @@
+// Copyright (c) 2025 Afonso Barracha
+//
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 use leptos::prelude::*;
 use leptos_router::{components::A, hooks::use_location};
 
@@ -22,11 +28,20 @@ pub fn NavbarButton(
 
 #[component]
 fn CommonButtons(#[prop(into)] set_is_menu_open: WriteSignal<bool>) -> impl IntoView {
+    let path = use_location().pathname;
+
     view! {
         <NavbarButton set_is_menu_open text="Home" href="/" />
         <NavbarButton set_is_menu_open text="Portfolio" href="/portfolio" />
-        <NavbarButton set_is_menu_open text="Blog" href="/blog" />
-        <NavbarButton set_is_menu_open text="Contact Me" href="/contact" />
+        <NavbarButton set_is_menu_open text="CV" href="/cv" />
+        <A
+            href="/blog"
+            on:click=move |_| set_is_menu_open.set(false)
+        >
+            <span class=move || if path.get().contains("/blog") { "active" } else { "" }>
+                "Blog"
+            </span>
+        </A>
     }
 }
 

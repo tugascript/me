@@ -1,3 +1,4 @@
+pub mod common;
 pub mod footer;
 pub mod global;
 pub mod intro;

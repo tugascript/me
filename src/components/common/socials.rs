@@ -45,17 +45,6 @@ fn Instagram() -> impl IntoView {
 }
 
 #[component]
-fn Email() -> impl IntoView {
-    view! {
-        <a href="mailto:barracha.afonso@gmail.com">
-            <svg xmlns="http://www.w3.org/2000/svg" height="clamp(1rem, 3vw, 1.5rem)" viewBox="0 -960 960 960" width="clamp(1rem, 3vw, 1.5rem)" fill="#FAFAFA">
-                <path d="m480-920 362 216q18 11 28 30t10 40v434q0 33-23.5 56.5T800-120H160q-33 0-56.5-23.5T80-200v-434q0-21 10-40t28-30l362-216Zm0 466 312-186-312-186-312 186 312 186Zm0 94L160-552v352h640v-352L480-360Zm0 160h320-640 320Z"/>
-            </svg>
-        </a>
-    }
-}
-
-#[component]
 pub fn Socials() -> impl IntoView {
     view! {
         <div class="socials">
@@ -63,7 +52,6 @@ pub fn Socials() -> impl IntoView {
             <LinkedIn />
             <GitHub />
             <Instagram />
-            <Email />
         </div>
     }
 }

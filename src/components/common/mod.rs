@@ -4,12 +4,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-mod cv;
-mod home;
-mod privacy_policy;
-mod terms_and_conditions;
+mod socials;
+mod title;
 
-pub use cv::CvPage;
-pub use home::HomePage;
-pub use privacy_policy::PrivacyPolicy;
-pub use terms_and_conditions::TermsAndConditions;
+pub use title::Title;
